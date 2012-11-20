@@ -1,6 +1,7 @@
 package zsrnpr.z.entity;
 
 import java.util.List;
+import java.util.concurrent.ConcurrentMap;
 
  /**
  * @author srnpr
@@ -46,21 +47,27 @@ public class Kvd {
 	}
 
 
+	public ConcurrentMap<String, Kvd> getC() {
+		return c;
+	}
+
+
+	public void setC(ConcurrentMap<String, Kvd> c) {
+		this.c = c;
+	}
+
+
 	private String v="";
 	
 	private String d="";
 	
 	
 
-	private List<Kvd> c=null;
-
-	public List<Kvd> getC() {
-		return c;
-	}
-
-	public void setC(List<Kvd> c) {
-		this.c = c;
-	}
+	
+	
+	private ConcurrentMap<String, Kvd> c;
+	
+	
 	
 	
 	
