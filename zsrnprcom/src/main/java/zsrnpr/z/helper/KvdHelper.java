@@ -26,7 +26,7 @@ public class KvdHelper extends Kvd {
 	{
 		if(this.getC()==null)
 		{
-			this.setC(new List<Kvd>());
+			//this.setC(new List<Kvd>());
 		}
 	}
 	
