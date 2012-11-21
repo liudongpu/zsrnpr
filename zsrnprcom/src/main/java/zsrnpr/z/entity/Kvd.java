@@ -1,6 +1,6 @@
 package zsrnpr.z.entity;
 
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
  /**
@@ -8,45 +8,24 @@ import java.util.concurrent.ConcurrentMap;
  * Base Entity Kvd
  *
  */
-public class Kvd {
+public class Kvd extends KvdBase {
 
 	
+	public Kvd()
+	{
+		
+	}
+	public Kvd(String sKey,String sValue)
+	{
+		this(sKey, sValue, "");
+	}
+	public Kvd(String sKey,String sValue,String sDescription)
+	{
+		this.setK(sKey);
+		this.setV(sValue);
+		this.setD(sDescription);
+	}
 	
-	/**
-	 * 
-	 */
-	private String k="";
-	
-	public String getK() {
-		return k;
-	}
-
-
-	public void setK(String k) {
-		this.k = k;
-	}
-
-
-	public String getV() {
-		return v;
-	}
-
-
-	public void setV(String v) {
-		this.v = v;
-	}
-
-
-	public String getD() {
-		return d;
-	}
-
-
-	public void setD(String d) {
-		this.d = d;
-	}
-
-
 	public ConcurrentMap<String, Kvd> getC() {
 		return c;
 	}
@@ -56,19 +35,24 @@ public class Kvd {
 		this.c = c;
 	}
 
-
-	private String v="";
-	
-	private String d="";
-	
+	private  ConcurrentMap<String, Kvd> c;
 	
 
 	
+	public void Add(String sKey,String sValue)
+	{
+		this.Add(sKey, sValue,"");
+	}
 	
-	private ConcurrentMap<String, Kvd> c;
-	
-	
-	
+	public void Add(String sKey,String sValue,String sDescription)
+	{
+		if(this.getC()==null)
+		{
+			this.setC(new ConcurrentHashMap<String, Kvd>());
+		}
+		this.getC().put(sKey,new Kvd(sKey, sValue,sDescription));
+	}
+
 	
 	
 }
