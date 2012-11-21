@@ -6,9 +6,10 @@
 </head>
 <body>
 <h1>
-	Hello world2等等 
+	Hello woddrld2等等 
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<p> thisid:${thisid} </p>
 </body>
 </html>
