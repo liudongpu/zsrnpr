@@ -115,7 +115,12 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>
+		<dependency>
+			<groupId>zsrnpr</groupId>
+			<artifactId>zsrnprcom</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>

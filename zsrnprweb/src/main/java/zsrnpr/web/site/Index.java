@@ -13,9 +13,9 @@ public class Index {
 	@RequestMapping(value="/index/{id}")
 	public String index(Locale locale ,@PathVariable("id")String id, Model model) {
 		
-		model.addAttribute("serverTime", "ccvvccffxxeee" );
+		model.addAttribute("serverTime", "ccvvccffffffxxeee" );
 		
 		model.addAttribute("thisid", id);
-		return "index";
+		return "home";
 	}
 }

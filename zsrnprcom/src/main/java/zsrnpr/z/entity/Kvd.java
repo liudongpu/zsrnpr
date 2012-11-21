@@ -1,5 +1,6 @@
 package zsrnpr.z.entity;
 
+import java.io.Serializable;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -8,7 +9,7 @@ import java.util.concurrent.ConcurrentMap;
  * Base Entity Kvd
  *
  */
-public class Kvd extends KvdBase {
+public class Kvd extends KvdBase implements Serializable  {
 
 	
 	public Kvd()
@@ -26,16 +27,6 @@ public class Kvd extends KvdBase {
 		this.setD(sDescription);
 	}
 	
-	public ConcurrentMap<String, Kvd> getC() {
-		return c;
-	}
-
-
-	public void setC(ConcurrentMap<String, Kvd> c) {
-		this.c = c;
-	}
-
-	private  ConcurrentMap<String, Kvd> c;
 	
 
 	

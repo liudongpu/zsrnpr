@@ -1,7 +1,19 @@
 package zsrnpr.z.entity;
 
+import java.util.concurrent.ConcurrentMap;
+
 public class KvdBase {
 
+	public ConcurrentMap<String, Kvd> getC() {
+		return c;
+	}
+
+
+	public void setC(ConcurrentMap<String, Kvd> c) {
+		this.c = c;
+	}
+
+	private  ConcurrentMap<String, Kvd> c;
 	
 	
 	
