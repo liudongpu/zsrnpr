@@ -22,6 +22,7 @@ public class LoadConfig {
 			FileInputStream fis=new FileInputStream(sPath);
 			properties.load(fis);
 			
+			@SuppressWarnings("rawtypes")
 			Enumeration em=properties.propertyNames();
 			while (em.hasMoreElements()) {
 				String sKeyString=(String)em.nextElement();
@@ -29,7 +30,6 @@ public class LoadConfig {
 			}
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
