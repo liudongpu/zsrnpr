@@ -2,6 +2,7 @@ package zsrnpr.z.servlet;
 
 import javax.servlet.ServletContext;
 import zsrnpr.z.helper.BaseHelper;
+import zsrnpr.z.system.StaticConst;
 
 public class ContextLoader {
 
@@ -15,6 +16,9 @@ public class ContextLoader {
 			LogInfo("begin init");
 			
 			
+			new zsrnpr.z.system.LoadConfig().LoadProperties(StaticConst.CONST_ZSRNPR_Z_PATH_STRING);
+			
+			LogInfo("zsrnpr.zrnprcom.version="+StaticConst.Const_Zsrnpr_PP.get("zsrnpr.zrnprcom.version"));
 			
 			
 			

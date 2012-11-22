@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configroot xmlns="http://z.srnpr.com/zsrnpr-config-xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://z.srnpr.com/zsrnpr-config-xsd zsrnpr-config-xsd.xsd ">
+	<configlist>
+		<item id="dd"></item>
+		<item id="bb"></item>
+	</configlist>
+</configroot>

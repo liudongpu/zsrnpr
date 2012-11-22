@@ -13,7 +13,7 @@ public class KvdHelperTest extends TestCase {
 		
 		
 		
-		
+		/*
 		Kvd kvd=new Kvd("key","value");
 		for(int i=0,j=100000;i<j;i++)
 		{
@@ -26,11 +26,13 @@ public class KvdHelperTest extends TestCase {
 		}
 		
 		assertTrue(kvd.getC().get("key999").getV().equals("999"));
+		*/
 	}
 	
 	
 	public void testSe() throws IOException
 	{
+		/*
 		Kvd kvd=new Kvd("key","value");
 		for(int i=0,j=20;i<j;i++)
 		{
@@ -53,6 +55,7 @@ public class KvdHelperTest extends TestCase {
 	       fStream.close();
 	       
 	       BaseHelper.Log(String.valueOf( pu.getC().get("key05").getV()));
+	       */
 	}
 	
 	
