@@ -6,6 +6,9 @@
         <dependent-module archiveName="zsrnprcom-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zsrnprcom/zsrnprcom">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="zsrnprmanage-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zsrnprmanage/zsrnprmanage">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
 		<property name="java-output-path" value="target/classes"/>
 		<property name="context-root" value="zsrnprweb"/>
 	</wb-module>

@@ -9,15 +9,21 @@ public  abstract  class BaseHelper {
 	}
 	
 	
-	public final static String  GetPPValue(String sKey) {
+	public final static String  PpValueGet(String sKey) {
 		return StaticConst.Const_Zsrnpr_PP.get(sKey);
 	}
 	
-	public  final static void SetPPValue(String sKey,String sValue) {
+	public  final static void PpValueSet(String sKey,String sValue) {
 		StaticConst.Const_Zsrnpr_PP.put(sKey, sValue);
 	}
 	
-	public final static boolean SetPPValueCheck(String sKey,String sValue)
+	public final static boolean PpValueContains(String sKey)
+	{
+		return StaticConst.Const_Zsrnpr_PP.containsKey(sKey);
+	}
+	
+	
+	public final static boolean PpValueSetCheck(String sKey,String sValue)
 	{
 		if(StaticConst.Const_Zsrnpr_PP.containsKey(sKey))
 		{
@@ -25,7 +31,7 @@ public  abstract  class BaseHelper {
 		}
 		else
 		{
-			SetPPValue(sKey, sValue);
+			PpValueSet(sKey, sValue);
 			return true;
 		}
 	}

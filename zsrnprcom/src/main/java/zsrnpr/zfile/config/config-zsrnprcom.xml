@@ -4,11 +4,6 @@
 	xsi:schemaLocation="http://z.srnpr.com/zsrnpr-config-xsd zsrnpr-config-xsd.xsd "
 	basename="zsrnprcom">
 	<configlist>
-		<item id="load-config">
-			<list>
-				<item id="zsrnprmanage" value=""></item>
-			</list>
-		</item>
-		<item id="bb"></item>
+		
 	</configlist>
 </configroot>
