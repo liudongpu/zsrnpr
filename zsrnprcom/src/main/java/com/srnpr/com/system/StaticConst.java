@@ -17,4 +17,6 @@ public final class StaticConst {
 	public final static ConcurrentHashMap<String, String> Const_Zsrnpr_PP=new ConcurrentHashMap<String, String>();
 	
 	
+	public final static ConcurrentHashMap<String, String> Const_Zsrnpr_Config=new ConcurrentHashMap<String, String>();
+	
 }
