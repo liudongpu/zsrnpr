@@ -8,7 +8,7 @@ public class BaseTest extends TestCase {
 
 	
 	
-	public  BaseTest()
+	public  void testBaseText()
 	{
 		BaseHelper.Log("test begin ");
 	}
