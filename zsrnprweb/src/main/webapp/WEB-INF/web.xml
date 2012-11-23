@@ -5,7 +5,7 @@
 
 
 	<listener>
-		<listener-class>zsrnpr.z.servlet.ContextLoaderListener</listener-class>
+		<listener-class>com.srnpr.com.servlet.ContextLoaderListener</listener-class>
 	</listener>
 
 

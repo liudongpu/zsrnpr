@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configroot xmlns="http://config.zfile.srnpr.com/xsd-zsrnpr-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://config.zfile.srnpr.com/xsd-zsrnpr-config xsd-zsrnpr-config.xsd "
+	basename="zsrnprcom">
+	<configlist>
+		
+	</configlist>
+</configroot>
