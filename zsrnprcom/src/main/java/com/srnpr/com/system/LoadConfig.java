@@ -35,26 +35,36 @@ public class LoadConfig {
 		PropertiesConfiguration properties=new PropertiesConfiguration();
 		try {
 			
+			CheckProperties checkProperties=new CheckProperties();
+			
+			
 			
 			//自动加载 判断如果是否是网站加载
 			if(StaticConst.Const_RootPath!=null)
 			{
+				//properties.load(StaticConst.Const_RootPath+StaticConst.CONST_ZSRNPR_Z_PATH_STRING);
 				
-				properties.load(StaticConst.Const_RootPath+StaticConst.CONST_ZSRNPR_Z_PATH_STRING);
-				
-				
-				
+				properties=new PropertiesConfiguration(StaticConst.Const_RootPath+StaticConst.CONST_ZSRNPR_Z_PATH_STRING);
+				checkProperties.Put(properties, StaticConst.Const_Zsrnpr_PP);
 			}
-			else {
+			
+			
 				 PathMatchingResourcePatternResolver patternResolver = new PathMatchingResourcePatternResolver();  
 				 Resource[] resources=patternResolver.getResources("com/srnpr/zfile/config/pp-zsrnpr.properties");
 				 if (resources != null && resources.length > 0) { 
-					 properties.load(resources[0].getFile());
+					
+					 PropertiesConfiguration pJarConfiguration=new PropertiesConfiguration(resources[0].getURL());
+						checkProperties.AutoCheck(properties, pJarConfiguration);
 				 }
-			}
-			CheckProperties checkProperties=new CheckProperties();
+			
+
+			
 			checkProperties.Put(properties, StaticConst.Const_Zsrnpr_PP);
 			
+			if(StaticConst.Const_RootPath!=null)
+			{
+				properties.save();
+			}
 			
 			ConfigHelper.PpValueSet("zsrnpr.z.rootpath", StaticConst.Const_RootPath);
 			
@@ -107,9 +117,15 @@ public class LoadConfig {
 						String sConfigDir=BaseHelper.PpValue("zsrnpr.z.rootpath")+BaseHelper.PpValue("zsrnpr.z.configpath");
 						String sConfigFile=sConfigDir+r.getFilename();
 						File fconfigFile=new File(sConfigFile);
+						
+					
 						if(fconfigFile.exists())
 						{
 							pExitProperties.load(fconfigFile);
+							
+							
+							
+							
 							cProperties.AutoCheck(pExitProperties, pJarConfiguration);
 							
 						}
