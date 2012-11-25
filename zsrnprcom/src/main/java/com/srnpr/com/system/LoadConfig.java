@@ -37,10 +37,10 @@ public class LoadConfig {
 			
 			CheckProperties checkProperties=new CheckProperties();
 			
-			
+			boolean bFlagWebSite=StaticConst.Const_RootPath!=null;
 			
 			//自动加载 判断如果是否是网站加载
-			if(StaticConst.Const_RootPath!=null)
+			if(bFlagWebSite)
 			{
 				//properties.load(StaticConst.Const_RootPath+StaticConst.CONST_ZSRNPR_Z_PATH_STRING);
 				
@@ -52,16 +52,23 @@ public class LoadConfig {
 				 PathMatchingResourcePatternResolver patternResolver = new PathMatchingResourcePatternResolver();  
 				 Resource[] resources=patternResolver.getResources("com/srnpr/zfile/config/pp-zsrnpr.properties");
 				 if (resources != null && resources.length > 0) { 
-					
+						
 					 PropertiesConfiguration pJarConfiguration=new PropertiesConfiguration(resources[0].getURL());
-						checkProperties.AutoCheck(properties, pJarConfiguration);
+						if(bFlagWebSite)
+						{
+					 checkProperties.AutoCheck(properties, pJarConfiguration);
+						}
+						else
+						{
+							properties=pJarConfiguration;
+						}
 				 }
 			
 
 			
 			checkProperties.Put(properties, StaticConst.Const_Zsrnpr_PP);
 			
-			if(StaticConst.Const_RootPath!=null)
+			if(bFlagWebSite)
 			{
 				properties.save();
 			}

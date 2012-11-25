@@ -18,16 +18,25 @@ public class CheckProperties {
 	
 
 	
+	public PropertiesConfiguration AutoCheck(PropertiesConfiguration pOldProperties,PropertiesConfiguration pNewProperties) {
+		return AutoCheck(pOldProperties,pNewProperties,true);
+	}
+	
+	
 	/**
 	 * @param pOldProperties 源属性
 	 * @param pNewProperties 将要比较的属性
 	 * @return
 	 */
-	public PropertiesConfiguration AutoCheck(PropertiesConfiguration pOldProperties,PropertiesConfiguration pNewProperties) {
+	public PropertiesConfiguration AutoCheck(PropertiesConfiguration pOldProperties,PropertiesConfiguration pNewProperties,boolean bFlagOverride) {
 		
 		String sOverride=BaseHelper.PpValue("zsrnpr.z.override");
-		int iLength=sOverride.length();
 		
+		int iLength=-1;
+		if(bFlagOverride)
+		{
+			iLength=sOverride.length();
+		}
 	
 		
 		Iterator<String> em=pNewProperties.getKeys();
@@ -36,10 +45,15 @@ public class CheckProperties {
 			String sValueString=pNewProperties.getString(sKeyString);
 			
 			boolean bOverride=false;
-			if(sValueString.startsWith(sOverride))
+			
+			
+			if(bFlagOverride&&iLength>0)
 			{
-				bOverride=true;
-				sValueString=sOverride.substring(iLength);
+				if(sValueString.startsWith(sOverride))
+				{
+					bOverride=true;
+					sValueString=sOverride.substring(iLength);
+				}
 			}
 			
 			
