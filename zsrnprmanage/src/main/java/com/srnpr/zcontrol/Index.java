@@ -18,19 +18,10 @@ public class Index {
 		model.addAttribute("serverTime", "zmanage！！" );
 		
 		
-		return "home";
+		return "zsrnprmanage/default";
 	}
 	
-	@RequestMapping(value="/{id}")
-	public String index(Locale locale ,@PathVariable("id")String id, Model model) {
-		
-		
-		
-		model.addAttribute("serverTime", "zmanage."+id );
-		
-		model.addAttribute("thisid", id);
-		return "home";
-	}
+	
 	
 	
 	@RequestMapping(value="dd")
