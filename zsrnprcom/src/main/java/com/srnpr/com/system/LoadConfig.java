@@ -71,9 +71,10 @@ public class LoadConfig {
 			if(bFlagWebSite)
 			{
 				properties.save();
+				ConfigHelper.PpValueSet("zsrnpr.z.rootpath", StaticConst.Const_RootPath);
 			}
 			
-			ConfigHelper.PpValueSet("zsrnpr.z.rootpath", StaticConst.Const_RootPath);
+			
 			
 			if(BaseHelper.PpValue("zsrnpr.z.version")==null)
 			{

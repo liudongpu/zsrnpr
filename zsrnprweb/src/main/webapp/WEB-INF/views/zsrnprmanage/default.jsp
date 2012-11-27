@@ -104,11 +104,16 @@
 
 	<div id="zmc_default_content" data-dojo-type="dijit/layout/TabContainer" data-dojo-props="region: 'center', tabStrip: true">
 				<div id="zmc_default_baseTab" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="title: 'Welcome'">
+				<!-- Tags end on line afterwards to eliminate any whitespace -->
+
+				<div id="foo" data-dojo-type="dijit/layout/ContentPane">
+    
+    <iframe src="zsrnprmanage/list/aa" style="width:100%;height:100%;" frameborder="0"></iframe>
+</div>
+				
 				</div>
 			</div>
- <div id="zmc_default_foot" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'">
-        foot
-    </div>
+ 
 
 
    </div>

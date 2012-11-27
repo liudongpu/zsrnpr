@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Index {
 
 	@RequestMapping(value="")
-	public String dd(Locale locale , Model model) {
+	public String defalut(Locale locale , Model model) {
 		
 		model.addAttribute("serverTime", "zmanage！！" );
 		
@@ -24,13 +24,13 @@ public class Index {
 	
 	
 	
-	@RequestMapping(value="dd")
+	@RequestMapping(value="zsrnprmanage/list/{id}")
 	public String home(Locale locale , Model model) {
 		
-		model.addAttribute("serverTime", "zmanage.dd！！！！！" );
+		//model.addAttribute("serverTime", "zmanage.dd！！！！！" );
 		
 		
-		return "home";
+		return "zsrnprmanage/list";
 	}
 	
 	
