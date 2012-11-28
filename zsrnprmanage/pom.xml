@@ -26,5 +26,10 @@
     	<artifactId>spring-webmvc</artifactId>
     	<version>3.1.0.RELEASE</version>
     </dependency>
+    <dependency>
+    	<groupId>zsrnpr</groupId>
+    	<artifactId>zsrnprcom</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>

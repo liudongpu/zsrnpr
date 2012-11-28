@@ -6,12 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>zsrnprmanage-list</title>
-
-<link href="http://zzf.m.srnpr.com/static/zsrnprmanage/css/zmc_default.css"
-	   rel="stylesheet"></link>
-	   <link href="http://zzf.m.srnpr.com/static/lib/dojo/dojox/grid/resources/Grid.css"
-	   rel="stylesheet"></link>
-<link href="http://zzf.m.srnpr.com/static/lib/dojo/dojox/grid/resources/claroGrid.css"
+ 
+<link href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojox/grid/resources/claroGrid.css"
 	   rel="stylesheet"></link>
 	   
 	   <style type="text/css">
@@ -19,56 +15,20 @@
 #grid {
     height: 20em;
 }</style>
-	   
-<script src="http://zzf.m.srnpr.com/static/lib/dojo/dojo/dojo.js"
-	           data-dojo-config="async: true,parseOnLoad:true"></script>
-<link rel="stylesheet" href="http://zzf.m.srnpr.com/static/lib/dojo/dojo/resources/dojo.css" />      
-<link href="http://zzf.m.srnpr.com/static/lib/dojo/dijit/themes/claro/claro.css" rel="stylesheet"></link>
+   
+<script src="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojo/dojo.js"
+	           data-dojo-config="async: true,parseOnLoad:true,isDebug:true"></script>
+	           
+<link rel="stylesheet" href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojo/resources/dojo.css" />      
+<link href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dijit/themes/claro/claro.css" rel="stylesheet"></link>
 <script>
 
-require(["dojo/ready","dojo/parser"]);
+//zsrnpr.zsrnprmanage.gridload();
+ require(["dojo/ready","dojo/parser"]);
+	   
 
-
-require(['dojo/_base/lang', 'dojox/grid/DataGrid', 'dojo/data/ItemFileWriteStore', 'dojo/dom', 'dojo/domReady!'],
-	    function(lang, DataGrid, ItemFileWriteStore, dom){
-
-	    /*set up data store*/
-	    var data = {
-	      identifier: "id",
-	      items: []
-	    };
-	    var data_list = [
-	      { col1: "normal", col2: false, col3: 'But are not followed by two hexadecimal', col4: 29.91},
-	      { col1: "important", col2: false, col3: 'Because a % sign always indicates', col4: 9.33},
-	      { col1: "important", col2: false, col3: 'Signs can be selectively', col4: 19.34}
-	    ];
-	    var rows = 60;
-	    for(var i = 0, l = data_list.length; i < rows; i++){
-	        data.items.push(lang.mixin({ id: i+1 }, data_list[i%l]));
-	    }
-	    var store = new ItemFileWriteStore({data: data});
-
-	    /*set up layout*/
-	    var layout = [[
-	      {'name': 'Column 1', 'field': 'id', 'width': '100px'},
-	      {'name': 'Column 2', 'field': 'col2', 'width': '100px'},
-	      {'name': 'Column 3', 'field': 'col3', 'width': '200px'},
-	      {'name': 'Column 4', 'field': 'col4', 'width': '150px'}
-	    ]];
-
-	    /*create a new grid*/
-	    var grid = new DataGrid({
-	        id: 'grid',
-	        store: store,
-	        structure: layout,
-	        rowSelector: '20px'});
-
-	        /*append the new grid to the div*/
-	        grid.placeAt("gridDiv");
-
-	        /*Call startup() to render the grid*/
-	        grid.startup();
-	});
+require(['zsrnpr/zsrnprmanage'],function(zsrnprmanage){zsrnprmanage.gridload('dd'); });
+	
 
 </script>
 

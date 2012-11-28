@@ -7,17 +7,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>zsrnprmanage</title>
 
-<link href="http://zzf.m.srnpr.com/static/zsrnprmanage/css/zmc_default.css"
+
+<link href="http://zzf.m.srnpr.com/zsrnprstatic/theams/claro/css/zsrnprmanage.css"
 	   rel="stylesheet"></link>
-<link href="http://zzf.m.srnpr.com/static/zsrnprmanage/css/zmc_base.css"
-	   rel="stylesheet"></link>
 	   
 	   
 	   
-<script src="http://zzf.m.srnpr.com/static/lib/dojo/dojo/dojo.js"
+<script src="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojo/dojo.js"
 	           data-dojo-config="async: true,parseOnLoad:true"></script>
-	     <link rel="stylesheet" href="http://zzf.m.srnpr.com/static/lib/dojo/dojo/resources/dojo.css" />      
-	 <link href="http://zzf.m.srnpr.com/static/lib/dojo/dijit/themes/claro/claro.css"
+	     <link rel="stylesheet" href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojo/resources/dojo.css" />      
+	 <link href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dijit/themes/claro/claro.css"
 	   rel="stylesheet"></link>
 	   
 	   <script>
@@ -106,7 +105,7 @@
 				<div id="zmc_default_baseTab" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="title: 'Welcome'">
 				<!-- Tags end on line afterwards to eliminate any whitespace -->
 
-				<div id="foo" data-dojo-type="dijit/layout/ContentPane">
+				<div  data-dojo-type="dijit/layout/ContentPane">
     
     <iframe src="zsrnprmanage/list/aa" style="width:100%;height:100%;" frameborder="0"></iframe>
 </div>
