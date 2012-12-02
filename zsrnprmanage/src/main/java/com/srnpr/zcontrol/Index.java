@@ -41,6 +41,19 @@ public class Index {
 		return "zsrnprmanage/list";
 	}
 	
+	@RequestMapping(value="zsrnprmanage/add/{id}")
+	public String Add(Locale locale , Model model) {
+		
+		//model.addAttribute("serverTime", "zmanage.dd！！！！！" );
+		
+		
+		return "zsrnprmanage/add";
+	}
+	
+	
+	
+	
+	
 	@RequestMapping(value="zsrnprmanage/json/{type}/{id}")
 	public String json(Locale locale , Model model) {
 		

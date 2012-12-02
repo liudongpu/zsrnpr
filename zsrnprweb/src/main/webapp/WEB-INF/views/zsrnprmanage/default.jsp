@@ -11,23 +11,24 @@
 <link href="http://zzf.m.srnpr.com/zsrnprstatic/theams/claro/css/zsrnprmanage.css"
 	   rel="stylesheet"></link>
 	   
-	   
-	   
+
 <script src="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojo/dojo.js"
 	           data-dojo-config="async: true,parseOnLoad:true"></script>
+	           
 	     <link rel="stylesheet" href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojo/resources/dojo.css" />      
 	 <link href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dijit/themes/claro/claro.css"
 	   rel="stylesheet"></link>
 	  <link href="http://zzf.m.srnpr.com/zsrnprstatic/theams/claro/css/zsrnprmanage.css"
 	   rel="stylesheet"></link> 
+	   
+	   
+	   
+	   <script src="http://zzf.m.srnpr.com/zsrnprstatic/js/zsrnpr/zsrnpr.js"></script>	   
+	  <script src="http://zzf.m.srnpr.com/zsrnprstatic/js/zsrnprmanage/zm_default.js"></script>	    
 	   <script>
 	 
 	   
-	   require(["dojo/ready","dojo/parser", "dijit/layout/ContentPane","dijit/layout/TabContainer", "dijit/layout/BorderContainer"]);
-	   
-	   require(["dojo/ready"], function(ready){
-		   ready(function(){setTimeout(function(){ var loader = dojo.byId("zmc_default_loader");loader.style.display = "none";},500) });
-		   });
+	  
 	   
 	   </script>
 	 
@@ -35,6 +36,7 @@
 </head>
 <body  class="claro">
 <div id="zmc_default_loader" class="zmc_default_loader"><div class="zmc_default_loaderInner"></div></div>
+<div id="zmc_default_processbar"  style="display:none;" data-dojo-type="dijit/Dialog" data-dojo-props="title: 'Loading',content: '请稍候,正在处理中^^',style: 'width: 300px'"></div>
 
 
 
@@ -108,7 +110,7 @@
 
 				<div  data-dojo-type="dijit/layout/ContentPane">
     
-    <iframe src="zsrnprmanage/list/aa" style="width:100%;height:100%;" frameborder="0"></iframe>
+   welcone
 </div>
 				
 				</div>

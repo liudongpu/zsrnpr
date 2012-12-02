@@ -1,17 +1,10 @@
 
 
 
+zsrnpr.e({
 
-define(
-		
-		function(){  
- 
-
-	
-	var zsrnprmanage={
-			
-			
-			gridcreate:/**
+	zm:{
+		gridcreate:/**
 			 * @param oResult
 			 */
 			function(oResult)
@@ -51,11 +44,8 @@ define(
 				
 				}
 		,
-
-		gridload:/**
-		 * 
-		 */
-		function()
+		father:parent.zsrnpr.zm_default,
+		gridload:function()
 		{
 			require(["dojo/request","dojo/json"],
 					function(request,JSON){
@@ -66,12 +56,9 @@ define(
 					(
 						function(data)
 						{
-							
 							var oResult=JSON.parse(data, true);
-							
-							zsrnprmanage.gridcreate(oResult); 
+							zsrnpr.zm.gridcreate(oResult); 
 						
-							
 						},
 						function(err)
 						{
@@ -85,33 +72,32 @@ define(
 			
 		}
 		
-			
-	};
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	return zsrnprmanage;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
- 
-}); 
+		
+		
+		
+		
+	}
+		
+});
+
+
+
+
+require(["dojo/ready"], function(ready){
+	   ready(function(){
+		  
+		  zsrnpr.zm.father.hiddenload();
+		   
+		   
+	   });
+});
+
+
+
+
+
+
+
+
+
+

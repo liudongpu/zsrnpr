@@ -23,19 +23,19 @@
 <link href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojox/grid/resources/claroGrid.css"
 	   rel="stylesheet"></link>
 	   
-
-
-
+	   
 	   
 <script src="http://zzf.m.srnpr.com/zsrnprstatic/js/zsrnpr/zsrnpr.js"></script>	 
-<script src="http://zzf.m.srnpr.com/zsrnprstatic/js/zsrnprmanage/zm.js"></script>	 
-<script src="http://zzf.m.srnpr.com/zsrnprstatic/js/zsrnprmanage/zm_list.js"></script>	
+<script src="http://zzf.m.srnpr.com/zsrnprstatic/js/zsrnprmanage/zm.js"></script>	 	   
+	   
+	   
+	   
 <script>
 
 //zsrnpr.zsrnprmanage.gridload();
  require(["dojo/ready","dojo/parser"]);
 	   
-dojo.ready(function(){zsrnpr.zm.gridload('dd');});
+//dojo.ready(function(){require(['zsrnpr/zsrnprmanage'],function(zsrnprmanage){zsrnprmanage.gridload('dd'); });});
 
 </script>
 
@@ -44,9 +44,9 @@ dojo.ready(function(){zsrnpr.zm.gridload('dd');});
 
 <div id="toolbar1" data-dojo-type="dijit/Toolbar">
 <div data-dojo-type="dijit/form/Button" id="toolbar1.cut"
-        data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconCopy'" onclick="zsrnpr.zm.father.addtab('dd','zsrnprmanage/add/dd');">新建</div
+        data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconCut'">新建</div
     ><div data-dojo-type="dijit/form/Button" id="toolbar1.copy"
-        data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconCut'">删除</div
+        data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconCopy', showLabel:false">Copy</div
     ><div data-dojo-type="dijit/form/Button" id="toolbar1.paste"
         data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconPaste', showLabel:false">Paste</div
     ><!-- The following adds a line between toolbar sections
