@@ -1,5 +1,10 @@
 package com.srnpr.com.helper;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+
+
 import com.srnpr.com.system.StaticConst;
 
 
@@ -63,7 +68,27 @@ public class ConfigHelper {
 	}
 	
 	
-	
+	public final static List<String> GetListFromHash(ConcurrentHashMap<String, String> concurrentHashMap,String sArrayIndex) {
+		
+		List<String> rList=new ArrayList<String>();
+		
+		String sValueString=concurrentHashMap.get(sArrayIndex);
+		
+		if(sValueString.equals("")||sValueString.equals("[]"))
+		{
+			int iNowIndex=0;
+			while (concurrentHashMap.containsKey(sArrayIndex+"."+iNowIndex)) {
+				rList.add(concurrentHashMap.get(sArrayIndex+"."+iNowIndex));
+				iNowIndex++;
+			}
+		}
+		
+		
+		
+		
+		return rList;
+		
+	}
 	
 	
 

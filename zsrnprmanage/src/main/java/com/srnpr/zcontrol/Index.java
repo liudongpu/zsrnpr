@@ -1,7 +1,10 @@
 package com.srnpr.zcontrol;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.srnpr.com.entity.ResultGrid;
+import com.srnpr.data.helper.DataHelper;
 
 
 
@@ -48,26 +52,27 @@ public class Index {
 		
 		
 		
-		for(int i=0;i<2;i++)
+		List<ConcurrentMap<String, String>> listData=DataHelper.QueryHashMap("zd_table", "");
+		rGrid.setData(listData);
+		
+		if(listData.size()>0)
 		{
-			ConcurrentHashMap<String, String> chmFieid=new ConcurrentHashMap<String, String>();
+			ConcurrentMap<String, String> cMap=listData.get(0);
+			Iterator<String> iterator=cMap.keySet().iterator();
+			while (iterator.hasNext()) {
+				
+				String sKey=iterator.next();
+				ConcurrentHashMap<String, String> cHashMap=new ConcurrentHashMap<String, String>();
+				cHashMap.put("name", sKey);
+				cHashMap.put("field", sKey);
+				rGrid.getLayout().add(cHashMap);
+				
+			}
 			
-			chmFieid.put("name", "namefield"+i);
-			chmFieid.put("field", "field"+i);
 			
-			rGrid.getLayout().add(chmFieid);
 		}
 		
-		
-		for(int i=0,j=10;i<j;i++)
-		{
-			ConcurrentHashMap<String, String> cHashMap=new ConcurrentHashMap<String, String>();
-			
-			cHashMap.put("field0", "0"+i);
-			cHashMap.put("field1", "0"+i);
-			rGrid.getData().add(cHashMap);
-		}
-		
+		rGrid.setSize(listData.size());
 		
 		ObjectMapper om=new ObjectMapper ();
 	

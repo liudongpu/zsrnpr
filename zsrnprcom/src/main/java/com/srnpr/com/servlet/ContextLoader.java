@@ -1,15 +1,9 @@
 package com.srnpr.com.servlet;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import javax.servlet.ServletContext;
 
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-
 import com.srnpr.com.helper.*;
+import com.srnpr.com.inface.IRootInit;
 import com.srnpr.com.system.*;
 /**
  * @author srnpr
@@ -46,17 +40,16 @@ public class ContextLoader {
 	public void InitProcess()
 	{
 		LogInfo("zsrnpr begin init");
+
+		IRootInit init=new InitAll();
+		init.Init();
 		
-		LoadConfig loadConfig=new LoadConfig();
 		
-		loadConfig.LoadBasePp();
-		
-		loadConfig.LoadConfigValue();
 
 
 		//Reset rootpath
 		
-		LogInfo("zsrnpr.z.rootpath="+BaseHelper.PpValue("zsrnpr.z.rootpath"));
+		//LogInfo("zsrnpr.z.rootpath="+BaseHelper.PpValue("zsrnpr.z.rootpath"));
 		LogInfo("zsrnpr.z.version="+BaseHelper.PpValue("zsrnpr.z.version"));	
 	}
 	

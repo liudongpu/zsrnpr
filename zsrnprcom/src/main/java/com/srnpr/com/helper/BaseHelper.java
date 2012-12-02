@@ -8,7 +8,7 @@ import com.srnpr.com.system.*;
  */
 public  abstract  class BaseHelper {
 
-	public final static void Log(String sLogInfo) {
+	public final static void Log(Object sLogInfo) {
 		
 		System.out.println(sLogInfo);
 	}

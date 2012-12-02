@@ -18,7 +18,8 @@
 	     <link rel="stylesheet" href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojo/resources/dojo.css" />      
 	 <link href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dijit/themes/claro/claro.css"
 	   rel="stylesheet"></link>
-	   
+	  <link href="http://zzf.m.srnpr.com/zsrnprstatic/theams/claro/css/zsrnprmanage.css"
+	   rel="stylesheet"></link> 
 	   <script>
 	 
 	   

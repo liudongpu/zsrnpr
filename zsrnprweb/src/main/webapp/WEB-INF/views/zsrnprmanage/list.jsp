@@ -7,8 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>zsrnprmanage-list</title>
  
-<link href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojox/grid/resources/claroGrid.css"
-	   rel="stylesheet"></link>
+
 	   
 	   <style type="text/css">
 /*Grid needs an explicit height by default*/
@@ -21,14 +20,14 @@
 	           
 <link rel="stylesheet" href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojo/resources/dojo.css" />      
 <link href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dijit/themes/claro/claro.css" rel="stylesheet"></link>
+<link href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojox/grid/resources/claroGrid.css"
+	   rel="stylesheet"></link>
 <script>
 
 //zsrnpr.zsrnprmanage.gridload();
  require(["dojo/ready","dojo/parser"]);
 	   
-
-require(['zsrnpr/zsrnprmanage'],function(zsrnprmanage){zsrnprmanage.gridload('dd'); });
-	
+dojo.ready(function(){require(['zsrnpr/zsrnprmanage'],function(zsrnprmanage){zsrnprmanage.gridload('dd'); });});
 
 </script>
 

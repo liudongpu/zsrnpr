@@ -2,7 +2,6 @@ package com.srnpr.com.entity;
 
 import java.io.Serializable;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 
  /**
  * @author srnpr
@@ -12,6 +11,11 @@ import java.util.concurrent.ConcurrentMap;
 public class Kvd extends KvdBase implements Serializable  {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Kvd()
 	{
 		

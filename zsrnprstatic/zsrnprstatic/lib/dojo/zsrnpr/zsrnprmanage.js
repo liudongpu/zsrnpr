@@ -17,8 +17,8 @@ define(
 			function(oResult)
 			{
 				
-				require(['dojo/_base/lang', 'dojox/grid/DataGrid', 'dojo/data/ItemFileWriteStore', 'dojo/dom', 'dojo/domReady!'],
-					    function(lang, DataGrid, ItemFileWriteStore, dom){
+				require(['dojo/_base/lang', 'dojox/grid/DataGrid', 'dojo/data/ItemFileWriteStore'],
+					    function(lang, DataGrid, ItemFileWriteStore){
 
 					    /*set up data store*/
 					    var data = {
@@ -26,7 +26,7 @@ define(
 					      items: []
 					    };
 					    var data_list = oResult.data;
-					    var rows = 60;
+					    var rows = oResult.size;
 					    for(var i = 0, l = data_list.length; i < rows; i++){
 					        data.items.push(lang.mixin({ id: i+1 }, data_list[i%l]));
 					    }
@@ -57,9 +57,9 @@ define(
 		 */
 		function()
 		{
-			require(["dojo/request","dojo/ready","dojo/json"],
-					function(request,ready,JSON){
-				ready(
+			require(["dojo/request","dojo/json"],
+					function(request,JSON){
+				dojo.ready(
 				function()
 				{
 					request("../json/grid/aaa").then
