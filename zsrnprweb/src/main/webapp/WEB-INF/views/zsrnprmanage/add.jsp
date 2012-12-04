@@ -22,7 +22,8 @@
 <link href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dijit/themes/claro/claro.css" rel="stylesheet"></link>
 <link href="http://zzf.m.srnpr.com/zsrnprstatic/lib/dojo/dojox/grid/resources/claroGrid.css"
 	   rel="stylesheet"></link>
-	   
+<link href="http://zzf.m.srnpr.com/zsrnprstatic/theams/claro/css/zsrnprmanage.css"
+	   rel="stylesheet"></link>	   
 	   
 	   
 <script src="http://zzf.m.srnpr.com/zsrnprstatic/js/zsrnpr/zsrnpr.js"></script>	 
@@ -32,10 +33,8 @@
 	   
 <script>
 
-//zsrnpr.zsrnprmanage.gridload();
  require(["dojo/ready","dojo/parser"]);
 	   
-//dojo.ready(function(){require(['zsrnpr/zsrnprmanage'],function(zsrnprmanage){zsrnprmanage.gridload('dd'); });});
 
 </script>
 
@@ -44,7 +43,7 @@
 
 <div id="toolbar1" data-dojo-type="dijit/Toolbar">
 <div data-dojo-type="dijit/form/Button" id="toolbar1.cut"
-        data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconCut'">新建</div
+        data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconSave'" onclick="zsrnpr.zm.submit()">保存</div
     ><div data-dojo-type="dijit/form/Button" id="toolbar1.copy"
         data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconCopy', showLabel:false">Copy</div
     ><div data-dojo-type="dijit/form/Button" id="toolbar1.paste"
@@ -54,9 +53,12 @@
      ><div data-dojo-type="dijit/form/ToggleButton" id="toolbar1.bold"
         data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconBold', showLabel:false">Bold</div>
 </div>
+<div  data-dojo-type="dijit/layout/ContentPane">
 
-
-<div id="gridDiv"></div>
+<div>
+	${zsrnprmanage_view_html}
+</div>
+</div>
 
 
 

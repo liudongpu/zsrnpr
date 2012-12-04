@@ -1,5 +1,7 @@
 package com.srnpr.data.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class TableInfo {
@@ -27,21 +29,28 @@ public class TableInfo {
 	}
 
 
-	public ConcurrentHashMap<String, TableColumn> getCloumns() {
-		return cloumns;
+	
+
+
+	public List<TableColumn> getChildColumns() {
+		return childColumns;
 	}
 
 
-	public void setCloumns(ConcurrentHashMap<String, TableColumn> cloumns) {
-		this.cloumns = cloumns;
+	public void setChildColumns(List<TableColumn> childColumns) {
+		this.childColumns = childColumns;
 	}
+
+
+
 
 
 	private String tableDescription="";
 	
 	
-	private ConcurrentHashMap<String, TableColumn> cloumns=new ConcurrentHashMap<String, TableColumn>();
 	
+	
+	private List<TableColumn> childColumns=new ArrayList<TableColumn>();
 	
 	
 	

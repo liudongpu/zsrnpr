@@ -2,10 +2,14 @@ package com.srnpr.com.helper;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.srnpr.com.BaseTest;
+import com.srnpr.com.convert.JsonConvert;
+import com.srnpr.com.entity.PageParams;
 import com.srnpr.com.entity.ResultGrid;
+import com.srnpr.com.entity.ResultSubmit;
 
 
 public class ConfigHelperTest extends BaseTest {
@@ -52,7 +56,28 @@ public class ConfigHelperTest extends BaseTest {
 		
 		
 		
-		BaseHelper.Log(om.writeValueAsString(rGrid));
+		//BaseHelper.Log(om.writeValueAsString(rGrid));
+		
+		JsonConvert<ResultGrid> jConvert=new JsonConvert<ResultGrid>();
+		
+		String sTo=jConvert.ObjToString(rGrid);
+		BaseHelper.Log(sTo);
+		
+		
+		JsonConvert<PageParams> jConvertPage=new JsonConvert<PageParams>();
+		PageParams rsResultSubmit=new PageParams();
+		
+		rsResultSubmit.getParams().put("aa", "vv");
+		
+		String sNewToString=jConvertPage.ObjToString(rsResultSubmit);
+		BaseHelper.Log(sNewToString);
+		
+		PageParams pSubmit=new PageParams();
+		
+		pSubmit=jConvertPage.StringToObj(sNewToString,pSubmit);
+		
+		BaseHelper.Log(pSubmit.getParams().get("aa"));
+		
 		
 		
 		

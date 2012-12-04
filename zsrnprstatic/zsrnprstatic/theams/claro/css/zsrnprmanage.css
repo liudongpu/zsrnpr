@@ -16,6 +16,26 @@ html, body {
 
 
 
+/**********************************************/
+.zmc_page_table
+{
+	margin-top:30px;
+}
+.zmc_page_table tr
+{
+	height:30px;
+	
+}
+
+.zmc_page_table tr td 
+{
+	padding-left:20px;
+}
+
+.zmc_page_table tr td.left
+{
+	text-align:right;
+}
 
 
 .zmc_default_main
@@ -55,3 +75,8 @@ html, body {
 	background-image: url('../img/loader_lg.gif');
 	background-repeat: no-repeat;
 }
+
+
+
+
+

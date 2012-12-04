@@ -8,10 +8,20 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 import com.srnpr.com.helper.BaseHelper;
+import com.srnpr.data.entity.TableInfo;
 import com.srnpr.data.system.StaticConst;
 
 public class DataHelper {
 
+	
+	public static TableInfo TableInfoGet(String sTableName)
+	{
+		return StaticConst.Const_Data_TableInfos.get(sTableName);
+	}
+	
+	
+	
+	
 	
 	
 	public static List<ConcurrentMap<String, String>> QueryHashMap(String sTableName,String sRows) {
@@ -37,7 +47,10 @@ public class DataHelper {
 		return listReturnConcurrentMaps;
 	}
 	
-	
+	public static Map<String, Object> QueryOne(String sTableName,String sRows,Object... args)
+	{
+		return QueryList(sTableName,sRows,"",-1,-1,args).get(0);
+	}
 	
 	public static List<Map<String, Object>> QueryList(String sTableName,String sRows,Object... args)
 	{

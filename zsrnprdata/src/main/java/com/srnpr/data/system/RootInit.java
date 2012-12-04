@@ -99,11 +99,13 @@ public class RootInit extends RootInitBase implements IRootInit {
 				TableColumn tColumn=new TableColumn();
 				tColumn.setColumnName((String)mapColumn.get("name"));
 				tColumn.setColumnDescription((String)mapColumn.get("description"));
-				tiInfo.getCloumns().put(tColumn.getColumnName(), tColumn);
-			}     
+				tiInfo.getChildColumns().add(tColumn);
+			} 
+			
+			StaticConst.Const_Data_TableInfos.put(tiInfo.getTableName(), tiInfo);
 
 			
-			StaticConst.Const_Data_Table_Server.put(tiInfo.getTableName(), String.valueOf(mapTable.get("server_code")));
+			StaticConst.Const_Data_Table_Server.put(tiInfo.getTableName(), String.valueOf(mapTable.get("servercode")));
 		}
 		
 		
