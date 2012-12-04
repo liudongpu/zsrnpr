@@ -6,25 +6,18 @@ import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import org.apache.tomcat.util.http.RequestUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.support.RequestContext;
-
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.srnpr.com.convert.JsonConvert;
 import com.srnpr.com.entity.ResultGrid;
 import com.srnpr.com.entity.ResultSubmit;
+import com.srnpr.com.inface.IPageSubmit;
 import com.srnpr.data.helper.DataHelper;
-import com.srnpr.manage.page.PageSubmitAdd;
 import com.srnpr.manage.process.PageAdd;
+import com.srnpr.operate.page.PageSubmit;
 
 
 
@@ -44,7 +37,7 @@ public class Index {
 	
 	
 	@RequestMapping(value="zsrnprmanage/list/{id}")
-	public String home(Locale locale , Model model) {
+	public String List(Locale locale , Model model) {
 		
 		//model.addAttribute("serverTime", "zmanage.dd！！！！！" );
 		
@@ -55,36 +48,32 @@ public class Index {
 	@RequestMapping(value="zsrnprmanage/add/{id}")
 	public String Add(Locale locale ,@PathVariable("id") String sId, Model model) {
 		
-		//model.addAttribute("serverTime", "zmanage.dd！！！！！" );
-		
+
 		PageAdd pageAdd=new PageAdd();
-		
-		
+
 		model.addAttribute("zsrnprmanage_view_html",pageAdd.GetHtml(sId) );
-		
-		
 		return "zsrnprmanage/add";
 	}
 	
 	
 	
 	@RequestMapping(value="zsrnprmanage/submit/{type}/{id}")
-	public String Submit(Locale locale,@PathVariable("type") String sType ,@PathVariable("id") String sId, Model model) {
+	public String Submit(Locale locale,@PathVariable("type") String sType ,
+			@PathVariable("id") String sId,
+			@RequestParam("com_srnpr_operate_base_bpagehtml_submitinput") String sInput,
+			Model model) {
 		
 		//model.addAttribute("serverTime", "zmanage.dd！！！！！" );
 		
+
+		IPageSubmit iPageSubmit=new PageSubmit();
 		
-		PageAdd pageAdd=new PageAdd();
 
 		
-		
-		
-		PageSubmitAdd pageSubmitAdd=new PageSubmitAdd();
-		
-		 ResultSubmit rSubmit= pageSubmitAdd.Submit(null);
+		ResultSubmit rSubmit= iPageSubmit.Submit(null);
 		 
 		 
-		 JsonConvert<ResultSubmit> jConvert=new JsonConvert<ResultSubmit>();
+		JsonConvert<ResultSubmit> jConvert=new JsonConvert<ResultSubmit>();
 		 
 		model.addAttribute("zsrnprmanage_view_json",jConvert.ObjToString(rSubmit) );
 		
@@ -125,23 +114,8 @@ public class Index {
 		}
 		
 		rGrid.setSize(listData.size());
-		
-		/*
-		ObjectMapper om=new ObjectMapper ();
-	
-		String sResponseString=null;
-		try {
-			sResponseString=om.writeValueAsString(rGrid);
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
-		
-		JsonConvert jConvert=new JsonConvert();
-		
-		
-		
+
+		JsonConvert<ResultGrid> jConvert=new JsonConvert<ResultGrid>();
 		
 		model.addAttribute("zsrnprmanage_view_json",jConvert.ObjToString(rGrid));
 		

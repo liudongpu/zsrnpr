@@ -73,18 +73,25 @@ zsrnpr.e({
 		},
 		submit:function()
 		{
-			var sBaseId="zsrnpr_com_entity_pageparams";
+			var sBaseId="com_srnpr_operate_base_bpagehtml_submitparam";
 			
-			alert('');
+			alert(dojo.byId(sBaseId).value);
+			
+			var sSourceId="com_srnpr_operate_base_bpagehtml_submitsource";
+			
+			alert(dojo.formToJson(sSourceId));
+			
+			
+			
 			
 			dojo.xhrPost({
 			    url: "../submit/add/dd",
-			    //form: formNode, //Dojo会自动将form转成object
+			    form: dojo.byId('com_srnpr_operate_base_bpagehtml_submitform'), //Dojo会自动将form转成object
 			    timeout: 3000, //Dojo会保证超时设定的有效性
 			    handleAs: "json" //得到的response将被认为是JSON，并自动转为object
 			}).then(function(response){
 				alert(response);
-			    console.log("xhr get success:", response);
+			   
 			    return response; //必须返回response
 			});
 			
@@ -102,7 +109,7 @@ zsrnpr.e({
 
 
 
-require(["dojo/ready"], function(ready){
+require(["dojo/ready","dojo/dom-form"], function(ready){
 	   ready(function(){
 		  
 		  zsrnpr.zm.father.hiddenload();

@@ -40,5 +40,10 @@
     	<artifactId>zsrnprdata</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
     </dependency>
+    <dependency>
+    	<groupId>zsrnpr</groupId>
+    	<artifactId>zsrnproperate</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>
