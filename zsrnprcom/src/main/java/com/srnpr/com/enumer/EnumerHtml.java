@@ -7,7 +7,9 @@ public enum EnumerHtml {
 	tr,
 	td,
 	input,
-	hidden
+	hidden,
+	form,
+	text
 	
 	
 	

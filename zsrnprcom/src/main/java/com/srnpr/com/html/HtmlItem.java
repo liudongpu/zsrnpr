@@ -10,18 +10,38 @@ import com.srnpr.com.enumer.EnumerHtml;
 public class HtmlItem extends HtmlBase {
 
 	
-	
+	public HtmlItem(EnumerHtml tag)
+	{
+		this(tag.toString(), "");
+	}
 	
 	public HtmlItem(EnumerHtml tag,String sId)
 	{
+		this(tag.toString(), sId);
+	}
+	public HtmlItem(EnumerHtml tag,String sId,String sValue)
+	{
+		this(tag.toString(), sId);
 		switch (tag) {
 		case hidden:
-			this.setTag("input");
-			AddProperty("type", tag.toString());
+			AddProperty("value", sValue);
 			break;
 		default:
-			this.setTag(tag.toString());
+			this.setText(sValue);
 			break;
+		}
+	}
+	
+	public HtmlItem(String sTag,String sId)
+	{
+		if(sTag.equals("hidden")||sTag.equals("text"))
+		{
+			this.setTag("input");
+			AddProperty("type",sTag);
+		}
+		else
+		{
+			this.setTag(sTag);
 		}
 		
 		if(!StringUtils.isEmpty(sId))
@@ -30,12 +50,23 @@ public class HtmlItem extends HtmlBase {
 		}
 		
 		
+		
+		
+	}
+	public HtmlItem AddItem(EnumerHtml enumerHtml)
+	{
+		
+		HtmlItem hReturnItem=new HtmlItem(enumerHtml);
+		
+		this.getChild().add(hReturnItem);
+		return hReturnItem;
 	}
 	
 	
-	public void AddItem(HtmlItem hItem)
+	public HtmlItem AddItem(HtmlItem hItem)
 	{
 		this.getChild().add(hItem);
+		return hItem;
 	}
 	
 	public void AddProperty(String sKey,String sValue)
@@ -46,17 +77,30 @@ public class HtmlItem extends HtmlBase {
 	
 	public String ToHtml()
 	{
-		return ToHtml(this);
+		return ToHtml(this,0);
+	}
+	
+	
+	public String ToHtml(int iDeep)
+	{
+		return ToHtml(this,iDeep);
 	}
 	
 	
 	
-	
-	
-	
-	public String ToHtml(HtmlItem hItem)
+	public String ToHtml(HtmlItem hItem,int iDeep)
 	{
 		StringBuilder sBuilder=new StringBuilder();
+		sBuilder.append(String.format("%n"));
+		
+		if(iDeep>0)
+		{
+			for(int i=0;i<iDeep;i++)
+			{
+				sBuilder.append(" ");
+			}
+		}
+		
 		if(!StringUtils.isEmpty(hItem.getId()))
 		{
 			AddProperty("id", hItem.getId());
@@ -66,23 +110,54 @@ public class HtmlItem extends HtmlBase {
 			AddProperty("class", hItem.getCss());
 		}
 		
-		sBuilder.append("<"+hItem.getTag()+" ");
+		sBuilder.append("<"+hItem.getTag());
 		Iterator<String> iterator=hItem.getProperty().keySet().iterator();
 		
 		while (iterator.hasNext()) {
 			String sNameString=iterator.next();
-			sBuilder.append(sNameString+"=\""+hItem.getProperty().get(sNameString)+"\" ");
+			sBuilder.append(" "+sNameString+"=\""+hItem.getProperty().get(sNameString)+"\"");
 			
 		}
+		
+		
+		if(hItem.getChild().size()==0&&StringUtils.isEmpty(hItem.getText()))
+		{
+			
+			sBuilder.append("/>");
+			//sBuilder.append(String.format("%n"));
+		}
+		else
+		{
+		
 		sBuilder.append(">");
 		
 		for(HtmlBase hChildHtmlItem:hItem.getChild())
 		{
-			sBuilder.append(((HtmlItem)hChildHtmlItem).ToHtml());
+			//sBuilder.append(String.format("%n"));
+			sBuilder.append(((HtmlItem)hChildHtmlItem).ToHtml(iDeep+1));
 		}
 		
-		sBuilder.append("</"+hItem.getTag()+">");
+		if(!StringUtils.isEmpty(hItem.getText()))
+		{
+			sBuilder.append(hItem.getText());
+		}
 		
+		if(hItem.getChild().size()>0)
+		{
+			sBuilder.append(String.format("%n"));
+			if(iDeep>0)
+			{
+				for(int i=0;i<iDeep;i++)
+				{
+					sBuilder.append(" ");
+				}
+			}
+		}
+		
+		
+		
+			sBuilder.append("</"+hItem.getTag()+">");
+		}
 		
 		
 		return sBuilder.toString();

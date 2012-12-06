@@ -4,6 +4,16 @@ public class BPageHtml {
 
 	
 	
+	protected final String bpage_id_submitformString="com_srnpr_operate_base_bpagehtml_submitform";
+	protected final String bpage_id_submithiddenString="com_srnpr_operate_base_bpagehtml_submitinput";
+	
+	
+	
+	protected final String bpage_id_showformString="com_srnpr_operate_base_bpagehtml_showform";
+	
+	
+	
+	
 	/**
 	 * 基本交互参数设置
 	 */
