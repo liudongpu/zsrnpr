@@ -75,15 +75,18 @@ zsrnpr.e({
 		{
 			var sBaseId="com_srnpr_operate_base_bpagehtml_submitparam";
 			
-			alert(dojo.byId(sBaseId).value);
 			
 			var sSourceId="com_srnpr_operate_base_bpagehtml_submitsource";
 			
-			alert(dojo.formToJson(sSourceId));
+			//alert(dojo.formToJson(sSourceId));
 			
 			
+			var sSubmit=escape( '{"params":'+dojo.formToJson(sSourceId)+'}');
 			
+			dojo.byId('com_srnpr_operate_base_bpagehtml_submitinput').value=sSubmit;
+			alert(dojo.formToJson('com_srnpr_operate_base_bpagehtml_submitform'));
 			
+			//alert(sSubmit);
 			dojo.xhrPost({
 			    url: "../submit/add/dd",
 			    form: dojo.byId('com_srnpr_operate_base_bpagehtml_submitform'), //Dojo会自动将form转成object

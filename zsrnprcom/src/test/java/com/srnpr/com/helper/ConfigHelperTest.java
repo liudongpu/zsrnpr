@@ -10,6 +10,8 @@ import com.srnpr.com.convert.JsonConvert;
 import com.srnpr.com.entity.PageParams;
 import com.srnpr.com.entity.ResultGrid;
 import com.srnpr.com.entity.ResultSubmit;
+import com.srnpr.com.enumer.EnumerHtml;
+import com.srnpr.com.html.HtmlItem;
 
 
 public class ConfigHelperTest extends BaseTest {
@@ -18,6 +20,14 @@ public class ConfigHelperTest extends BaseTest {
 	
 	public void testParseFormat() throws JsonProcessingException
 	{
+		
+		HtmlItem hItem=new HtmlItem(EnumerHtml.div, "dd");
+		
+		hItem.AddItem(new HtmlItem(EnumerHtml.hidden, "xx"));
+		
+		BaseHelper.Log(hItem.ToHtml());
+		
+		
 		ObjectMapper om=new ObjectMapper ();
 		/*
 		ConfigHelper chConfigHelper=new ConfigHelper();

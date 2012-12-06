@@ -2,6 +2,8 @@ package com.srnpr.com.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 public class HtmlBase {
 
@@ -46,6 +48,16 @@ public class HtmlBase {
 	private List<HtmlBase> child=new ArrayList<HtmlBase>();
 	
 	private String css="";
+	
+	private ConcurrentMap<String, String> property=new ConcurrentHashMap<String, String>();
+
+	public ConcurrentMap<String, String> getProperty() {
+		return property;
+	}
+
+	public void setProperty(ConcurrentMap<String, String> property) {
+		this.property = property;
+	}
 	
 	
 	

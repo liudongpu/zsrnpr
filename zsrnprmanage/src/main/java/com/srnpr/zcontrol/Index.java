@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.util.HtmlUtils;
+
 import com.srnpr.com.convert.JsonConvert;
 import com.srnpr.com.entity.ResultGrid;
 import com.srnpr.com.entity.ResultSubmit;
@@ -64,6 +66,9 @@ public class Index {
 			Model model) {
 		
 		//model.addAttribute("serverTime", "zmanage.dd！！！！！" );
+		
+		String sPageParam=java.net.URLDecoder.decode(sInput);
+		
 		
 
 		IPageSubmit iPageSubmit=new PageSubmit();

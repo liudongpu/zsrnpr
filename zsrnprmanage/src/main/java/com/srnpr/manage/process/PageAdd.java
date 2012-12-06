@@ -52,15 +52,14 @@ public class PageAdd extends BPageHtml {
 		sbBuilder.append("</table>");
 		
 		//sbBuilder.append(StringHelper.Format(this.pageParam, StringHelper.Join(lStrings, ",")));
-		JsonConvert<TableInfo> jConvert=new JsonConvert<TableInfo>();
-		
-		
-		
-		sbBuilder.append(StringHelper.Format(this.pageParam, jConvert.ObjToString(tInfo)));
 		
 		sbBuilder.append("</form>");
 		//Map<String, Object> map=DataHelper.QueryOne(sTableIdString, "*", "zid","1000200000000000001");
 		
+		JsonConvert<TableInfo> jConvert=new JsonConvert<TableInfo>();
+
+		
+		sbBuilder.append(StringHelper.Format(this.pageParam, HtmlUtils.htmlEscape(jConvert.ObjToString(tInfo))));
 		
 		return sbBuilder.toString();
 		
