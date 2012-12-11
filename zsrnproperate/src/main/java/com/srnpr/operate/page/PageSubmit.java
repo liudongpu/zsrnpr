@@ -10,6 +10,11 @@ public class PageSubmit implements IPageSubmit {
 		
 		ResultSubmit rSubmit=new ResultSubmit();
 		
+		
+		
+		
+		
+		
 	
 		return rSubmit;
 	}

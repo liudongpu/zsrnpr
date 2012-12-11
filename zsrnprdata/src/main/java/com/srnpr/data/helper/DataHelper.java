@@ -24,6 +24,25 @@ public class DataHelper {
 	
 	
 	
+	
+	
+	public static void Insert(String sTableName,ConcurrentMap<String, String> cParams)
+	{
+		StringBuffer sBuffer=new StringBuffer();
+		
+		
+		
+		
+		
+		StaticConst.Const_Data_Map.get(StaticConst.Const_Data_Table_Server.get(sTableName)).execute(sBuffer.toString());
+		
+	}
+	
+	
+	
+	
+	
+	
 	public static List<ConcurrentMap<String, String>> QueryHashMap(String sTableName,String sRows) {
 		
 		
