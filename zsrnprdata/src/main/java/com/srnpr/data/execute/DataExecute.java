@@ -3,7 +3,8 @@ package com.srnpr.data.execute;
 import java.util.List;
 import java.util.concurrent.ConcurrentMap;
 
-import com.srnpr.data.helper.DataHelper;
+import com.srnpr.com.entity.MapEntity;
+import com.srnpr.data.process.DataTemplete;
 
 public class DataExecute {
 
@@ -16,18 +17,19 @@ public class DataExecute {
 	}
 	
 	
-	public int Insert(ConcurrentMap<String, String> cParams)
+	public int Insert(MapEntity cParams)
 	{
-		
-		
-		
-		return 0;
+		return DataTemplete.Insert(tableName, cParams);
 	}
 	
 	
 	
-	public  List<ConcurrentMap<String, String>> QueryRows(String sTableName,String sRows) {
+	public  List<MapEntity> QueryRows(String sRows) {
 		
-		return DataHelper.QueryHashMap(sTableName, sRows);
+		return DataTemplete.QueryHashMap(tableName, sRows);
 	}
+	
+	
+	
+	
 }

@@ -38,6 +38,7 @@ public class HtmlItem extends HtmlBase {
 		{
 			this.setTag("input");
 			AddProperty("type",sTag);
+			AddProperty("name", sId);
 		}
 		else
 		{

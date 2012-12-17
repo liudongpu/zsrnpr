@@ -73,10 +73,10 @@ zsrnpr.e({
 		},
 		submit:function()
 		{
-			var sBaseId="com_srnpr_operate_base_bpagehtml_submitparam";
+			//var sBaseId="com_srnpr_operate_base_bpagehtml_submitparam";
 			
 			
-			var sSourceId="com_srnpr_operate_base_bpagehtml_submitsource";
+			var sSourceId="com_srnpr_operate_base_bpagehtml_showform";
 			
 			//alert(dojo.formToJson(sSourceId));
 			
