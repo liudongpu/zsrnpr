@@ -1,5 +1,6 @@
 package com.srnpr.zcontrol;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -11,13 +12,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.util.HtmlUtils;
-
 import com.srnpr.com.convert.JsonConvert;
+import com.srnpr.com.entity.MapEntity;
+import com.srnpr.com.entity.PageParams;
 import com.srnpr.com.entity.ResultGrid;
 import com.srnpr.com.entity.ResultSubmit;
+import com.srnpr.com.helper.BaseHelper;
 import com.srnpr.com.inface.IPageSubmit;
-import com.srnpr.data.helper.DataHelper;
+import com.srnpr.data.execute.DataExecute;
 import com.srnpr.manage.process.PageAdd;
 import com.srnpr.operate.page.PageSubmit;
 
@@ -66,16 +68,24 @@ public class Index {
 			Model model) {
 		
 		//model.addAttribute("serverTime", "zmanage.dd！！！！！" );
+		String sPageParam=null;
+		try {
+			sPageParam=java.net.URLDecoder.decode(sInput,"utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		String sPageParam=java.net.URLDecoder.decode(sInput);
+		BaseHelper.Log(sPageParam);
 		
+		PageParams pageParams=new JsonConvert<PageParams>().StringToObj(sPageParam, new PageParams());
 		
 
 		IPageSubmit iPageSubmit=new PageSubmit();
 		
 
 		
-		ResultSubmit rSubmit= iPageSubmit.Submit(null);
+		ResultSubmit rSubmit= iPageSubmit.Submit(pageParams);
 		 
 		 
 		JsonConvert<ResultSubmit> jConvert=new JsonConvert<ResultSubmit>();
@@ -96,9 +106,9 @@ public class Index {
 		rGrid.setFlag(1);
 		
 		
+		DataExecute dExecute=new DataExecute("zd_table");
 		
-		
-		List<ConcurrentMap<String, String>> listData=DataHelper.QueryHashMap("zd_table", "");
+		List<MapEntity> listData=dExecute.QueryRows("");
 		rGrid.setData(listData);
 		
 		if(listData.size()>0)

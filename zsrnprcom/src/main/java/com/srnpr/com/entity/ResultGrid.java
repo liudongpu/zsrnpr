@@ -9,13 +9,13 @@ public class ResultGrid extends ResultBase {
 	
 	
 	
-	private List<ConcurrentMap<String, String>> data=new ArrayList<ConcurrentMap<String,String>>();
+	private List<MapEntity> data=new ArrayList<MapEntity>();
 
-	public List<ConcurrentMap<String, String>> getData() {
+	public List<MapEntity> getData() {
 		return data;
 	}
 
-	public void setData(List<ConcurrentMap<String, String>> data) {
+	public void setData(List<MapEntity> data) {
 		this.data = data;
 	}
 

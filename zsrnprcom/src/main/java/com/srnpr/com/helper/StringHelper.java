@@ -69,6 +69,22 @@ public class StringHelper {
 	
 	
 	
+	public static String CopyString(String sInput,String sDelimiter,int iLength)
+	{
+		StringBuilder sbBuilder=new StringBuilder();
+		
+		for(int i=0,j=iLength-1;i<j;i++)
+		{
+			sbBuilder.append(sInput+sDelimiter);
+		}
+		sbBuilder.append(sInput);
+		return sbBuilder.toString();
+		
+	}
+	
+	
+	
+	
 	
 	
 }

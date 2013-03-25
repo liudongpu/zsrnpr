@@ -6,7 +6,7 @@ import com.srnpr.com.inface.IPageSubmit;
 
 public class PageSubmit implements IPageSubmit {
 
-	public ResultSubmit Submit(PageParams pSubmit) {
+	public ResultSubmit Submit(PageParams pParams) {
 		
 		ResultSubmit rSubmit=new ResultSubmit();
 		
