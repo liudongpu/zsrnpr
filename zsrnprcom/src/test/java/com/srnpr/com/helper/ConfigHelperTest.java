@@ -59,7 +59,7 @@ public class ConfigHelperTest extends BaseTest {
 			
 			cHashMap.put("id", "0"+i);
 			cHashMap.put("value", "0"+i);
-			rGrid.getData().add(cHashMap);
+			//rGrid.getData().add(cHashMap);
 		}
 		
 		
